@@ -38,7 +38,7 @@ language-translation-tool/
 1. Open a terminal in the project folder:
 
 ```powershell
-cd "E:\New folder\language translation tool"
+cd "E:\New\language translation tool"
 ```
 
 2. Install the required packages:
@@ -68,18 +68,13 @@ http://127.0.0.1:5000
 5. Copy the translated text if needed.
 
 ## Screenshots
-
-Add your screenshots in an `assets/screenshots` folder, then replace these placeholders with your images.
-
-### Home Page
-
-![Home page screenshot](assets/screenshots/home-page.png)
-
-### Translation Result
-
-![Translation result screenshot](assets/screenshots/translation-result.png)
+![Home page screenshot](screenshots/home-page.png)
+![Translation result screenshot](screenshots/translation-result.png)
 
 ## GitHub
+``
+bash https://github.com/ahmedshafifahad123/language-translation-tool.git
+``
 
 Create a new GitHub repository, then upload this project folder to it. Your repository should include:
 
