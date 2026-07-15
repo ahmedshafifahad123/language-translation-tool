@@ -71,7 +71,6 @@ http://127.0.0.1:5000
 ![Home page screenshot](screenshots/home-page.jpg)
 ![Translation result screenshot](screenshots/translation-result.jpg)
 
-
 ## GitHub
 bash
 ```
