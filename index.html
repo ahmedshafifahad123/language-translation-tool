@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Lingua | Translate with confidence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="page-shell">
+    <nav class="topbar" aria-label="Main navigation">
+      <a class="brand" href="{{ url_for('index') }}" aria-label="Lingua home">
+        <span class="brand-mark">文</span><span>lingua</span>
+      </a>
+      <span class="provider-status"><i></i> Translation ready</span>
+    </nav>
+
+    {% if error %}
+      <div class="alert" role="alert"><span>!</span>{{ error }}</div>
+    {% endif %}
+
+    <form method="post" id="translateForm" class="translator-card">
+      <div class="language-row">
+        <div class="language-field">
+          <label for="source">From</label>
+          <div class="select-wrap">
+            <select name="source" id="source">
+              {% for code,name in languages %}
+                <option value="{{ code }}" {% if code==source %}selected{% endif %}>{{ name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <button class="swap-button" id="swapBtn" type="button" title="Swap languages" aria-label="Swap source and target languages">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h12m0 0-3-3m3 3-3 3M17 17H5m0 0 3 3m-3-3 3-3"/></svg>
+        </button>
+        <div class="language-field target-field">
+          <label for="target">To</label>
+          <div class="select-wrap">
+            <select name="target" id="target">
+              {% for code,name in languages if code!='auto' %}
+                <option value="{{ code }}" {% if code==target %}selected{% endif %}>{{ name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="translation-grid">
+        <section class="text-panel input-panel">
+          <div class="panel-heading"><label for="sourceText">Enter text</label><span id="charCount">{{ text|length }} / 5,000</span></div>
+          <textarea name="text" id="sourceText" maxlength="5000" placeholder="Type or paste something to translate…" autofocus>{{ text }}</textarea>
+          <button class="text-action clear-action" id="clearBtn" type="button">Clear text</button>
+        </section>
+
+        <section class="text-panel output-panel {% if translated %}has-result{% endif %}" aria-live="polite">
+          <div class="panel-heading"><span>Translation</span>{% if translated %}<span class="result-label">Done</span>{% endif %}</div>
+          {% if translated %}
+            <p id="translatedText" {% if target in ['ur', 'ar'] %}dir="rtl"{% endif %}>{{ translated }}</p>
+            <div class="output-actions">
+              <button class="icon-action" id="copyBtn" type="button" aria-label="Copy translation">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="10" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copy</span>
+              </button>
+            </div>
+          {% else %}
+            <div class="empty-state">
+              <span class="empty-icon">✦</span>
+              <p>Your translation will appear here.</p>
+            </div>
+          {% endif %}
+        </section>
+      </div>
+
+      <div class="form-footer">
+        <p>Powered by {{ provider|capitalize }} translation</p>
+        <button class="translate-button" type="submit"><span>Translate</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+      </div>
+    </form>
+
+    <p class="privacy-note"><span>✦</span> Your text is translated securely and is never stored.</p>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
