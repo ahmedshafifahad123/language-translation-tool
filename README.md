@@ -68,8 +68,8 @@ http://127.0.0.1:5000
 5. Copy the translated text if needed.
 
 ## Screenshots
-![Home page screenshot](screenshots/home-page.jpg)
-![Translation result screenshot](screenshots/translation-result.jpg)
+![Home page screenshot](home-page.jpg)
+![Translation result screenshot](translation-result.jpg)
 
 ## GitHub
 bash
