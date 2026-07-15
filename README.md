@@ -74,7 +74,7 @@ http://127.0.0.1:5000
 ## GitHub
 bash
 ```
-https://github.com/ahmedshafifahad123/language-translation-tool.git
+https://github.com/ahmedshafifahad123/CodeAlpha_translation_tool.git
 ```
 
 Create a new GitHub repository, then upload this project folder to it. Your repository should include:
