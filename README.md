@@ -68,13 +68,15 @@ http://127.0.0.1:5000
 5. Copy the translated text if needed.
 
 ## Screenshots
-![Home page screenshot](screenshots/home-page.png)
-![Translation result screenshot](screenshots/translation-result.png)
+![Home page screenshot](screenshots/home-page.jpg)
+![Translation result screenshot](screenshots/translation-result.jpg)
+
 
 ## GitHub
-``
-bash https://github.com/ahmedshafifahad123/language-translation-tool.git
-``
+bash
+```
+https://github.com/ahmedshafifahad123/language-translation-tool.git
+```
 
 Create a new GitHub repository, then upload this project folder to it. Your repository should include:
 
